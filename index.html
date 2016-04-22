@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="decisionApp">
+  <head>
+    <meta charset="utf-8">
+    <title>I Can't Decide</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css" charset="utf-8">
+  </head>
+  <body ng-controller="mainController">
+    <form ng-submit="submit()">
+      <input type="text" ng-model="input" placeholder="I can't decide on...">
+      <input type="submit" value="Enter">
+      <br>
+      <span ng-cloak>{{ input }}</span>
+    </form>
+
+    <br>
+
+    <span ng-cloak>The List: {{ list }}</span>
+
+    <h5>I can't decide between these</h5>
+    <!-- track by $index to avoid duplicates errors -->
+    <div ng-repeat="item in list track by $index">
+      <div class="ng-cloak items">
+        {{ item }}
+      </div>
+
+    </div>
+
+    <br>
+
+    <button id="decideBtn" ng-click="randomChoice()">Help!</button>
+
+    <div ng-hide="randomResult === -1">
+    Go with {{ randomResult }}
+    </div>
+    <br>
+  </body>
+</html>
