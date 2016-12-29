@@ -22,7 +22,7 @@
     <h5>I can't decide between these</h5>
     <!-- track by $index to avoid duplicates errors -->
     <div ng-repeat="item in list track by $index">
-      <div class="ng-cloak items">
+      <div class="ng-cloak items" ng-class="{{}}">
         {{ item }}
       </div>
 
@@ -32,7 +32,7 @@
 
     <button id="decideBtn" ng-click="randomChoice()">Help!</button>
 
-    <div ng-hide="randomResult === -1">
+    <div ng-hide="randomResult === -1" class="result">
     Go with {{ randomResult }}
     </div>
     <br>
